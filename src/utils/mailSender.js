@@ -1,30 +1,33 @@
 import nodemailer from "nodemailer";
-import { readFile as readFileAsync } from 'fs/promises';
-import Handlebars from 'handlebars';
-// Function to send an OTP verification email
+import { readFile as readFileAsync } from "fs/promises";
+import Handlebars from "handlebars";
+
 const sendVerificationEmail = async (email, otp) => {
   try {
-    const htmlTemplate = await readFileAsync('public/temp/email.handlebars', 'utf-8');
+    const htmlTemplate = await readFileAsync(
+      "public/temp/email.handlebars",
+      "utf-8"
+    );
     const template = Handlebars.compile(htmlTemplate);
     // Create a transporter object using Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER, // Gmail address from environment variables
-        pass: process.env.GMAIL_PASSWORD, // Gmail password from environment variables
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASSWORD,
       },
     });
     const htmltosend = template({
-        otp: otp, // OTP to be inserted into the email template
-      });
-  
+      otp: otp,
+    
+    });
 
     // Define the email content
     const message = {
       from: process.env.GMAIL_USER, // Sender email
       to: email, // Recipient email
       subject: "OTP Verification", // Email subject
-      html: htmltosend
+      html: htmltosend,
     };
 
     // Send the email
@@ -36,4 +39,4 @@ const sendVerificationEmail = async (email, otp) => {
   }
 };
 
-export {sendVerificationEmail};
+export { sendVerificationEmail };
