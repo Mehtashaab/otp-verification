@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .header {
+      background-color: #4CAF50;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .content {
+      padding: 30px;
+      text-align: center;
+    }
+    .content p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    .otp {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 24px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-weight: bold;
+      letter-spacing: 4px;
+    }
+    .footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      background-color: #f4f4f7;
+    }
+    .footer a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Verify Your Account</h1>
+    </div>
+
+    <!-- Email Content -->
+    <div class="content">
+      <p>Dear User,</p>
+      <p>Thank you for registering with us. To complete your signup, please use the following One-Time Password (OTP) to verify your account:</p>
+
+      <div class="otp">
+        {{otp}}
+      </div>
+
+      <p>This OTP is valid for the next 5 minutes. Please do not share this code with anyone.</p>
+      <p>If you didn't request this email, you can safely ignore it.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Need help? <a href="mailto:support@yourdomain.com">Contact us</a></p>
+      <p>Thank you for choosing us!</p>
+    </div>
+  </div>
+
+</body>
+</html>
